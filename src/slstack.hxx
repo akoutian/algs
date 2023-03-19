@@ -5,6 +5,9 @@
 
 #pragma once
 
+namespace sls
+{
+
 template <typename T> class SLStack
 {
   public:
@@ -64,3 +67,5 @@ template <typename T> struct SLStack<T>::Node
     T s;
     std::shared_ptr<Node> next;
 };
+
+} // namespace sls

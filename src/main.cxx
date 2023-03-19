@@ -11,7 +11,7 @@ int main(void)
 {
     const std::vector<std::string> v{"to", "be", "or", "not", "to", "be"};
 
-    SLStack<std::string> stack;
+    sls::SLStack<std::string> stack;
 
     std::for_each(v.begin(), v.end(),
                   [&](const auto &s)
