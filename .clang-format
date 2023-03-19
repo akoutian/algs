@@ -1,0 +1,7 @@
+---
+BasedOnStyle: Microsoft
+ColumnLimit: 100
+BreakBeforeBraces: Custom
+BraceWrapping:
+  BeforeLambdaBody: true
+...
