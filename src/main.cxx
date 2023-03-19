@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "slstack.h"
+#include "slstack.hxx"
 
 #include <algorithm>
 #include <iostream>

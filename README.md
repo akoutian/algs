@@ -6,7 +6,7 @@ Generic stack implementation in C++ using a singly-linked list. Inspired by
 # compilation
     $ mkdir build
     $ cd build
-    $ cmake ..
+    $ cmake ../src
     $ make
 
 # usage
