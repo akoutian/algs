@@ -10,4 +10,5 @@ Generic stack implementation in C++ using a singly-linked list. Inspired by
     $ make
 
 # usage
-    ./slstack
+    $ cd build
+    $ ./slstack
