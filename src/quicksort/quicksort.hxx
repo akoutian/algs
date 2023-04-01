@@ -14,6 +14,7 @@ namespace qs
 namespace util
 {
 
+// deliberately not using std::swap
 template <typename T>
 inline static void exch(T &a, size_t ii, size_t jj)
 {
@@ -22,6 +23,7 @@ inline static void exch(T &a, size_t ii, size_t jj)
     a[jj] = v;
 }
 
+// deliberately not using std::partition
 template <typename T>
 inline static size_t partition(T &a, size_t lo, size_t hi)
 {
