@@ -4,3 +4,4 @@ project(algs LANGUAGES CXX)
 
 add_subdirectory(quicksort)
 add_subdirectory(slstack)
+add_subdirectory(sstable)
