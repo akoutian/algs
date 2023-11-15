@@ -11,7 +11,7 @@ int main(void)
 {
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
 
-    tst::TST<int> tst;
+    tst::TST<size_t> tst;
 
     size_t ii{};
     std::for_each(v.begin(), v.end(), [&](const auto &s) { tst.put(s, ii++); });

@@ -6,7 +6,6 @@
 #include <cassert>
 #include <cstddef>
 #include <limits>
-#include <stdexcept>
 
 namespace qs
 {
@@ -15,8 +14,7 @@ namespace util
 {
 
 // deliberately not using std::swap
-template <typename T>
-inline static void exch(T &a, size_t ii, size_t jj)
+template <typename T> inline static void exch(T &a, size_t ii, size_t jj)
 {
     auto v = a[ii];
     a[ii] = a[jj];
@@ -24,8 +22,7 @@ inline static void exch(T &a, size_t ii, size_t jj)
 }
 
 // deliberately not using std::partition
-template <typename T>
-inline static size_t partition(T &a, size_t lo, size_t hi)
+template <typename T> inline static size_t partition(T &a, size_t lo, size_t hi)
 {
     size_t ii = lo;
     size_t jj = hi + 1;
@@ -63,8 +60,7 @@ inline static size_t partition(T &a, size_t lo, size_t hi)
     return jj;
 }
 
-template <typename T>
-inline static void sort(T &a, size_t lo, size_t hi)
+template <typename T> inline static void sort(T &a, size_t lo, size_t hi)
 {
     if (hi <= lo)
     {
@@ -82,16 +78,15 @@ inline static void sort(T &a, size_t lo, size_t hi)
         sort(a, jj + 1, hi);
     }
 
-    assert(std::is_sorted(std::begin(a) + lo, std::begin(a) + hi));
+    assert(std::is_sorted(a.begin() + static_cast<long>(lo), a.end() + static_cast<long>(hi)));
 }
 
 } // namespace util
 
-template <typename T>
-void sort(T &a)
+template <typename T> void sort(T &a)
 {
     util::sort(a, 0, a.size() - 1);
-    assert(std::is_sorted(std::begin(a), std::end(a)));
+    assert(std::is_sorted(a.begin(), a.end()));
 }
 
 } // namespace qs
