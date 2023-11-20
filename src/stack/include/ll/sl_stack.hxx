@@ -5,13 +5,14 @@
 
 #pragma once
 
-namespace sls
+namespace ll
 {
 
-template <typename T> class SLStack
+// stack implemented with a singly-linked list
+template <typename T> class sl_stack
 {
   public:
-    SLStack() : m_size{} {};
+    sl_stack() : m_size{} {};
 
     bool empty()
     {
@@ -20,7 +21,7 @@ template <typename T> class SLStack
 
     void push(const T &s)
     {
-        auto first = std::make_shared<Node>();
+        auto first = std::make_shared<node>();
         first->s = s;
         first->next = m_top;
         m_top = first;
@@ -57,15 +58,15 @@ template <typename T> class SLStack
     }
 
   private:
-    struct Node;
-    std::shared_ptr<Node> m_top;
+    struct node;
+    std::shared_ptr<node> m_top;
     size_t m_size;
 };
 
-template <typename T> struct SLStack<T>::Node
+template <typename T> struct sl_stack<T>::node
 {
     T s;
-    std::shared_ptr<Node> next;
+    std::shared_ptr<node> next;
 };
 
-} // namespace sls
+} // namespace ll
