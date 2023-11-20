@@ -2,7 +2,7 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "msd.hxx"
+#include "radix/msd.hxx"
 
 #include <doctest/doctest.h>
 

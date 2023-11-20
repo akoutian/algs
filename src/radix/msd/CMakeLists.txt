@@ -1,5 +1,0 @@
-if(BUILD_TESTING)
-  set(TEST_NAME msd-test)
-  create_test(NAME "${TEST_NAME}" SOURCES msd-test.cxx)
-  target_link_libraries("${TEST_NAME}" doctest::doctest)
-endif()
