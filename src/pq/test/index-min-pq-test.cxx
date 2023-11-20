@@ -2,7 +2,7 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "index-min-pq.hxx"
+#include "pq/index-min-pq.hxx"
 
 #include <doctest/doctest.h>
 
