@@ -1,0 +1,6 @@
+add_subdirectory(pq)
+add_subdirectory(qs)
+add_subdirectory(radix)
+add_subdirectory(st)
+add_subdirectory(stack)
+add_subdirectory(tst)
