@@ -348,7 +348,7 @@ TEST_CASE(
     CHECK_THROWS_WITH_AS(will_throw(), "Priority queue underflow.", const std::invalid_argument &);
 }
 
-TEST_CASE("Test method \"remove_min\" - 5: check that keys are removed in sorted order")
+TEST_CASE("Test method \"remove_min\" - 5: check that keys are removed in increasing order")
 {
     static constexpr std::array<std::string, 10> v{"it",    "was", "the", "best", "of",
                                                    "times", "it",  "was", "the",  "worst"};

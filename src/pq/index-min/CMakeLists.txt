@@ -1,5 +1,0 @@
-if(BUILD_TESTING)
-  set(TEST_NAME index-min-pq-test)
-  create_test(NAME "${TEST_NAME}" SOURCES index-min-pq-test.cxx)
-  target_link_libraries("${TEST_NAME}" doctest::doctest)
-endif()

@@ -1,1 +1,1 @@
-add_subdirectory(index-min)
+add_subdirectory(index)
