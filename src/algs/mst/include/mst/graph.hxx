@@ -4,9 +4,6 @@
 namespace graph
 {
 
-namespace weighted
-{
-
 template <class Edge> class graph
 {
   public:
@@ -90,7 +87,5 @@ template <class Edge> class graph
     bool m_is_directed;
     std::vector<std::vector<std::shared_ptr<Edge>>> m_adj;
 };
-
-} // namespace weighted
 
 } // namespace graph
