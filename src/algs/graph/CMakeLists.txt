@@ -16,4 +16,7 @@ if(BUILD_TESTING)
 
   create_test(NAME mst-test SOURCES test/mst-test.cxx)
   target_link_libraries(mst-test graph doctest::doctest)
+
+  create_test(NAME bfs-test SOURCES test/bfs-test.cxx)
+  target_link_libraries(bfs-test graph doctest::doctest)
 endif()
