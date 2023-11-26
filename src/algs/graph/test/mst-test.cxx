@@ -2,9 +2,9 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "mst/edge.hxx"
-#include "mst/graph.hxx"
-#include "mst/prim-mst.hxx"
+#include "graph/edge.hxx"
+#include "graph/graph.hxx"
+#include "graph/prim-mst.hxx"
 
 #include <doctest/doctest.h>
 
@@ -12,7 +12,7 @@ namespace mst
 {
 
 using graph::weighted::edge;
-using graph = graph::weighted::graph<edge>;
+using graph = graph::graph<edge>;
 
 void assert_edge_appears_once_in_mst(std::shared_ptr<edge> e,
                                      const std::vector<std::shared_ptr<edge>> &mst_edges)

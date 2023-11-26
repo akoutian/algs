@@ -2,7 +2,7 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "mst/edge.hxx"
+#include "graph/edge.hxx"
 
 #include <doctest/doctest.h>
 

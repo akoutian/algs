@@ -1,4 +1,4 @@
-add_subdirectory(mst)
+add_subdirectory(graph)
 add_subdirectory(pq)
 add_subdirectory(qs)
 add_subdirectory(radix)
