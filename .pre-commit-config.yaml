@@ -10,7 +10,7 @@ repos:
     rev: 62302476d0da01515660132d76902359bed0f782
     hooks:
     - id: clang-format
-      files: '\.(cxx|h)$'
+      files: '\.(cxx|hxx)$'
 -   repo: https://github.com/cheshirekow/cmake-format-precommit
     rev: v0.6.13
     hooks:
@@ -24,7 +24,7 @@ repos:
     - id: forbid-tabs
     - id: remove-tabs
     - id: insert-license
-      files: '\.(cxx|h)$'
+      files: '\.(cxx|hxx)$'
       args:
       - --license-filepath
       - license-header.txt
