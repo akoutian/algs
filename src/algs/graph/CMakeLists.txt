@@ -8,6 +8,9 @@ if(BUILD_TESTING)
   create_test(NAME edge-test SOURCES test/edge-test.cxx)
   target_link_libraries(edge-test graph doctest::doctest)
 
+  create_test(NAME weighted-edge-test SOURCES test/weighted-edge-test.cxx)
+  target_link_libraries(weighted-edge-test graph doctest::doctest)
+
   create_test(NAME graph-test SOURCES test/graph-test.cxx)
   target_link_libraries(graph-test graph doctest::doctest)
 
