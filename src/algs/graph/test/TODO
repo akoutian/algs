@@ -1,0 +1,2 @@
+- implement dfs
+- refactor mst-test to test methods one-by-one as in bfs-test
