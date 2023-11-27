@@ -69,10 +69,13 @@ template <class Graph> class bfs
 
         std::vector<size_t> result;
 
-        for (size_t x = v; m_dist_to[x] != 0; x = m_edge_to[x])
+        size_t x{v};
+        while (m_dist_to[x] != 0)
         {
             result.push_back(x);
+            x = m_edge_to[x];
         }
+        result.push_back(x);
 
         return result;
     }

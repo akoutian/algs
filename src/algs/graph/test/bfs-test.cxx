@@ -62,8 +62,9 @@ TEST_CASE("Obvious BFS")
     CHECK(bfs.dist_to(1) == 1);
 
     const auto path = bfs.path_to(1);
-    REQUIRE(path.size() == 1);
+    REQUIRE(path.size() == 2);
     CHECK(path[0] == 1);
+    CHECK(path[1] == 0);
 }
 
 TEST_CASE("Check method \"has_path_to\"")
@@ -101,26 +102,31 @@ TEST_CASE("Check method \"path_to\"")
     bfs bfs(g, 0);
 
     const auto path1 = bfs.path_to(1);
-    REQUIRE(path1.size() == 1);
+    REQUIRE(path1.size() == 2);
     CHECK(path1[0] == 1);
+    CHECK(path1[1] == 0);
 
     const auto path2 = bfs.path_to(2);
-    REQUIRE(path2.size() == 1);
+    REQUIRE(path2.size() == 2);
     CHECK(path2[0] == 2);
+    CHECK(path2[1] == 0);
 
     const auto path5 = bfs.path_to(5);
-    REQUIRE(path5.size() == 1);
+    REQUIRE(path5.size() == 2);
     CHECK(path5[0] == 5);
+    CHECK(path5[1] == 0);
 
     const auto path3 = bfs.path_to(3);
-    REQUIRE(path3.size() == 2);
+    REQUIRE(path3.size() == 3);
     CHECK(path3[0] == 3);
     CHECK(path3[1] == 2);
+    CHECK(path3[2] == 0);
 
     const auto path4 = bfs.path_to(4);
-    REQUIRE(path4.size() == 2);
+    REQUIRE(path4.size() == 3);
     CHECK(path4[0] == 4);
     CHECK(path4[1] == 2);
+    CHECK(path3[2] == 0);
 }
 
 // TODO: test multiple-source bfs
