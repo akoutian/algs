@@ -6,11 +6,17 @@
 namespace graph
 {
 
+enum class direction
+{
+    undirected,
+    directed
+};
+
 template <class Edge> class graph
 {
   public:
     // Initialises an empty graph with `v` vertices and 0 edges.
-    graph(size_t v, bool is_directed = false) : m_v{v}, m_e{}, m_is_directed{is_directed}, m_adj(v)
+    graph(size_t v, direction d = direction::undirected) : m_v{v}, m_e{}, m_direction{d}, m_adj(v)
     {
     }
 
@@ -26,7 +32,7 @@ template <class Edge> class graph
 
     bool is_directed() const
     {
-        return m_is_directed;
+        return m_direction == direction::directed;
     }
 
     void add_edge(std::shared_ptr<Edge> e)
@@ -36,7 +42,7 @@ template <class Edge> class graph
 
         m_adj.at(v).push_back(e);
 
-        if (!m_is_directed)
+        if (m_direction == direction::undirected)
         {
             m_adj.at(w).push_back(e);
         }
@@ -86,7 +92,7 @@ template <class Edge> class graph
   private:
     size_t m_v;
     size_t m_e;
-    bool m_is_directed;
+    direction m_direction;
     std::vector<std::vector<std::shared_ptr<Edge>>> m_adj;
 };
 

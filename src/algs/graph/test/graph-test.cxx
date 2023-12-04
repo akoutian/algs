@@ -109,7 +109,7 @@ TEST_CASE("Test method \"add_edge\" - 3: three vertices, three edges (cycle)")
 
 TEST_CASE("Test method \"add_edge\" - 4: two vertices, one directed edge")
 {
-    graph<edge> g(2, true);
+    graph<edge> g(2, direction::directed);
     REQUIRE(g.is_directed());
 
     auto e = std::make_shared<edge>(0, 1, 0);
@@ -130,7 +130,7 @@ TEST_CASE("Test method \"add_edge\" - 4: two vertices, one directed edge")
 
 TEST_CASE("Test method \"add_edge\" - 5: three vertices, two directed edges")
 {
-    graph<edge> g(3, true);
+    graph<edge> g(3, direction::directed);
     REQUIRE(g.is_directed());
 
     auto e1 = std::make_shared<edge>(0, 1, 0);
@@ -158,7 +158,7 @@ TEST_CASE("Test method \"add_edge\" - 5: three vertices, two directed edges")
 
 TEST_CASE("Test method \"add_edge\" - 6: three vertices, three edges (directed cycle)")
 {
-    graph<edge> g(3, true);
+    graph<edge> g(3, direction::directed);
     REQUIRE(g.is_directed());
 
     auto e1 = std::make_shared<edge>(0, 1, 0);
