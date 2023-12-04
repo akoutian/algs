@@ -11,7 +11,7 @@
 namespace pq
 {
 
-template <typename Key> class index_max_pq
+template <typename key> class index_max_pq
 {
   public:
     // Initializes an empty indexed priority queue with indices between 0 and `size` - 1.
@@ -25,7 +25,7 @@ template <typename Key> class index_max_pq
         m_capacity = capacity;
         m_n = 0;
         // TODO: use unique pointers so we can actually free memory on deletion
-        m_keys = std::vector<Key>(capacity + 1);
+        m_keys = std::vector<key>(capacity + 1);
         m_pq = std::vector<size_t>(capacity + 1);
         m_qp = std::vector<std::optional<size_t>>(capacity + 1);
     }
@@ -48,8 +48,8 @@ template <typename Key> class index_max_pq
         return m_n;
     }
 
-    // Associates `key` with `index`.
-    void insert(Key key, size_t index)
+    // Associates key `k` with `index`.
+    void insert(key k, size_t index)
     {
         throw_on_invalid_index(index);
 
@@ -61,7 +61,7 @@ template <typename Key> class index_max_pq
         ++m_n;
         m_qp[index] = m_n;
         m_pq[m_n] = index;
-        m_keys[index] = key;
+        m_keys[index] = k;
         swim(m_n);
     }
 
@@ -76,7 +76,7 @@ template <typename Key> class index_max_pq
         return m_pq[1];
     }
 
-    Key max_key() const
+    key max_key() const
     {
         if (m_n == 0)
         {
@@ -103,7 +103,7 @@ template <typename Key> class index_max_pq
         return max;
     }
 
-    Key key_of(size_t index) const
+    key key_of(size_t index) const
     {
         throw_on_invalid_index(index);
 
@@ -115,8 +115,8 @@ template <typename Key> class index_max_pq
         return m_keys[index];
     }
 
-    // Changes the Key associated with `index` to the given `key`.
-    void change_key(Key key, size_t index)
+    // Changes the key associated with `index` to the given key `k`.
+    void change_key(key k, size_t index)
     {
         throw_on_invalid_index(index);
 
@@ -125,13 +125,13 @@ template <typename Key> class index_max_pq
             throw std::invalid_argument("Index is not in the priority queue.");
         }
 
-        m_keys[index] = key;
+        m_keys[index] = k;
         swim(*m_qp[index]);
         sink(*m_qp[index]);
     }
 
-    // Decreases the Key associated with `index` to the given `key`.
-    void decrease_key(Key key, size_t index)
+    // Decreases the key associated with `index` to the given key `k`.
+    void decrease_key(key k, size_t index)
     {
         throw_on_invalid_index(index);
 
@@ -140,23 +140,23 @@ template <typename Key> class index_max_pq
             throw std::invalid_argument("Index is not in the priority queue.");
         }
 
-        if (m_keys[index] == key)
+        if (m_keys[index] == k)
         {
             throw std::invalid_argument("Given key is equal to the key already present.");
         }
 
-        if (m_keys[index] < key)
+        if (m_keys[index] < k)
         {
             throw std::invalid_argument(
                 "Given key is strictly greater than the key already present.");
         }
 
-        m_keys[index] = key;
+        m_keys[index] = k;
         sink(*m_qp[index]);
     }
 
-    // Increases the Key associated with `index` to the given `key`.
-    void increase_key(Key key, size_t index)
+    // Increases the key associated with `index` to the given key `k`.
+    void increase_key(key k, size_t index)
     {
         throw_on_invalid_index(index);
 
@@ -165,21 +165,21 @@ template <typename Key> class index_max_pq
             throw std::invalid_argument("Index is not in the priority queue.");
         }
 
-        if (m_keys[index] == key)
+        if (m_keys[index] == k)
         {
             throw std::invalid_argument("Given key is equal to the key already present.");
         }
 
-        if (m_keys[index] > key)
+        if (m_keys[index] > k)
         {
             throw std::invalid_argument("Given key is strictly less than the key already present.");
         }
 
-        m_keys[index] = key;
+        m_keys[index] = k;
         swim(*m_qp[index]);
     }
 
-    // Removes the Key associated with `index`.
+    // Removes the key associated with `index`.
     void remove(size_t index)
     {
         throw_on_invalid_index(index);
@@ -252,7 +252,7 @@ template <typename Key> class index_max_pq
     size_t m_capacity;
     std::vector<size_t> m_pq;
     std::vector<std::optional<size_t>> m_qp;
-    std::vector<Key> m_keys;
+    std::vector<key> m_keys;
 };
 
 } // namespace pq

@@ -11,7 +11,7 @@ namespace tst
 
 TEST_CASE("Test method \"size\"")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -22,7 +22,7 @@ TEST_CASE("Test method \"size\"")
 
 TEST_CASE("Test method \"contains\" - I: valid query - hit")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -35,7 +35,7 @@ TEST_CASE("Test method \"contains\" - I: valid query - hit")
 
 TEST_CASE("Test method \"contains\" - II: valid query - miss")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -46,7 +46,7 @@ TEST_CASE("Test method \"contains\" - II: valid query - miss")
 
 TEST_CASE("Test method \"contains\" - III: invalid query")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -58,7 +58,7 @@ TEST_CASE("Test method \"contains\" - III: invalid query")
 
 TEST_CASE("Test method \"get\" - I: valid query - hit")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -71,7 +71,7 @@ TEST_CASE("Test method \"get\" - I: valid query - hit")
 
 TEST_CASE("Test method \"get\" - II: valid query - miss")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -82,7 +82,7 @@ TEST_CASE("Test method \"get\" - II: valid query - miss")
 
 TEST_CASE("Test method \"get\" - III: invalid query")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -94,7 +94,7 @@ TEST_CASE("Test method \"get\" - III: invalid query")
 
 TEST_CASE("Test method \"keys\"")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -110,7 +110,7 @@ TEST_CASE("Test method \"keys\"")
 
 TEST_CASE("Test method \"keys_with_prefix\" - I: valid query - hit")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -124,7 +124,7 @@ TEST_CASE("Test method \"keys_with_prefix\" - I: valid query - hit")
 
 TEST_CASE("Test method \"keys_with_prefix\" - II: valid query - miss")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -136,7 +136,7 @@ TEST_CASE("Test method \"keys_with_prefix\" - II: valid query - miss")
 
 TEST_CASE("Test method \"keys_with_prefix\" - III: invalid query")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -149,7 +149,7 @@ TEST_CASE("Test method \"keys_with_prefix\" - III: invalid query")
 
 TEST_CASE("Test method \"longest_prefix_of\" - I: valid query - hit")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};
@@ -161,7 +161,7 @@ TEST_CASE("Test method \"longest_prefix_of\" - I: valid query - hit")
 
 TEST_CASE("Test method \"keys_with_prefix\" - II: valid query - miss")
 {
-    TST<size_t> t;
+    tst<size_t> t;
 
     const std::vector<std::string> v{"she", "sells", "seashells", "by", "the", "sea", "shore"};
     size_t ii{};

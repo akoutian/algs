@@ -12,7 +12,7 @@ enum class direction
     directed
 };
 
-template <class Edge> class graph
+template <class edge> class graph
 {
   public:
     // Initialises an empty graph with `v` vertices and 0 edges.
@@ -35,7 +35,7 @@ template <class Edge> class graph
         return m_direction == direction::directed;
     }
 
-    void add_edge(std::shared_ptr<Edge> e)
+    void add_edge(std::shared_ptr<edge> e)
     {
         auto v = e->either();
         auto w = e->other(v);
@@ -50,7 +50,7 @@ template <class Edge> class graph
         ++m_e;
     }
 
-    std::vector<std::shared_ptr<Edge>> adj(size_t v) const
+    std::vector<std::shared_ptr<edge>> adj(size_t v) const
     {
         return m_adj.at(v);
     }
@@ -60,9 +60,9 @@ template <class Edge> class graph
         return m_adj.at(v).size();
     }
 
-    std::vector<std::shared_ptr<Edge>> edges() const
+    std::vector<std::shared_ptr<edge>> edges() const
     {
-        std::vector<std::shared_ptr<Edge>> result;
+        std::vector<std::shared_ptr<edge>> result;
         result.reserve(m_e);
 
         for (size_t vv{}; vv < m_v; ++vv)
@@ -93,7 +93,7 @@ template <class Edge> class graph
     size_t m_v;
     size_t m_e;
     direction m_direction;
-    std::vector<std::vector<std::shared_ptr<Edge>>> m_adj;
+    std::vector<std::vector<std::shared_ptr<edge>>> m_adj;
 };
 
 } // namespace graph

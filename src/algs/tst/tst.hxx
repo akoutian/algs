@@ -11,15 +11,15 @@
 namespace tst
 {
 
-template <typename T> struct Node
+template <typename T> struct node
 {
     char c;
-    std::shared_ptr<Node<T>> left, mid, right;
+    std::shared_ptr<node<T>> left, mid, right;
     std::optional<T> value;
 };
 
 // generic ternary search trie
-template <typename T> class TST
+template <typename T> class tst
 {
   public:
     size_t size()
@@ -39,7 +39,7 @@ template <typename T> class TST
             throw std::invalid_argument("key length must be >= 1");
         }
 
-        std::shared_ptr<Node<T>> x = get(m_root, key, 0);
+        std::shared_ptr<node<T>> x = get(m_root, key, 0);
 
         if (x == nullptr)
         {
@@ -73,7 +73,7 @@ template <typename T> class TST
     {
         std::vector<std::string> result;
 
-        std::shared_ptr<Node<T>> x = get(m_root, prefix, 0);
+        std::shared_ptr<node<T>> x = get(m_root, prefix, 0);
 
         if (x == nullptr)
         {
@@ -111,7 +111,7 @@ template <typename T> class TST
         }
 
         size_t length{}, ii{};
-        std::shared_ptr<Node<T>> x = m_root;
+        std::shared_ptr<node<T>> x = m_root;
         while (x != nullptr && ii < query.length())
         {
             char c = query[ii];
@@ -139,7 +139,7 @@ template <typename T> class TST
     }
 
   private:
-    std::shared_ptr<Node<T>> get(std::shared_ptr<Node<T>> x, std::string key, size_t d)
+    std::shared_ptr<node<T>> get(std::shared_ptr<node<T>> x, std::string key, size_t d)
     {
         if (x == nullptr)
         {
@@ -171,13 +171,13 @@ template <typename T> class TST
         }
     }
 
-    std::shared_ptr<Node<T>> put(std::shared_ptr<Node<T>> x, std::string key, T val, size_t d)
+    std::shared_ptr<node<T>> put(std::shared_ptr<node<T>> x, std::string key, T val, size_t d)
     {
         char c = key[d];
 
         if (x == nullptr)
         {
-            x = std::make_shared<Node<T>>();
+            x = std::make_shared<node<T>>();
             x->c = c;
         }
 
@@ -201,7 +201,7 @@ template <typename T> class TST
         return x;
     }
 
-    void collect(std::shared_ptr<Node<T>> x, std::string &prefix, std::vector<std::string> &result)
+    void collect(std::shared_ptr<node<T>> x, std::string &prefix, std::vector<std::string> &result)
     {
         if (x == nullptr)
         {
@@ -221,7 +221,7 @@ template <typename T> class TST
         collect(x->right, prefix, result);
     }
 
-    void collect(std::shared_ptr<Node<T>> x, std::string &prefix, size_t d,
+    void collect(std::shared_ptr<node<T>> x, std::string &prefix, size_t d,
                  const std::string &pattern, std::vector<std::string> &result)
     {
         if (x == nullptr)
@@ -258,7 +258,7 @@ template <typename T> class TST
     }
 
     size_t m_size;
-    std::shared_ptr<Node<T>> m_root;
+    std::shared_ptr<node<T>> m_root;
 };
 
 } // namespace tst

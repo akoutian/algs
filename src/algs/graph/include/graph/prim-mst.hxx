@@ -11,16 +11,16 @@
 namespace mst
 {
 
-template <class Graph, class Edge> class prim_mst
+template <class graph, class edge> class prim_mst
 {
   public:
-    prim_mst(const Graph &graph) : prim_mst(graph, graph.v())
+    prim_mst(const graph &g) : prim_mst(g, g.v())
     {
     }
 
-    std::vector<std::shared_ptr<Edge>> edges()
+    std::vector<std::shared_ptr<edge>> edges()
     {
-        std::vector<std::shared_ptr<Edge>> result;
+        std::vector<std::shared_ptr<edge>> result;
 
         for (size_t vv{}; vv < m_edge_to.size(); ++vv)
         {
@@ -47,14 +47,14 @@ template <class Graph, class Edge> class prim_mst
     }
 
   private:
-    prim_mst(const Graph &graph, size_t n)
+    prim_mst(const graph &g, size_t n)
         : m_dist_to(n, std::numeric_limits<double>::max()), m_marked(n), m_edge_to(n), m_pq(n)
     {
         for (size_t vv{}; vv < n; ++vv)
         {
             if (!m_marked[vv])
             {
-                prim(graph, vv);
+                prim(g, vv);
             }
         }
 
@@ -62,23 +62,23 @@ template <class Graph, class Edge> class prim_mst
     }
 
     // run Prim's algorithms in `graph` starting from the `source` vertex
-    void prim(const Graph &graph, size_t source)
+    void prim(const graph &g, size_t source)
     {
         m_dist_to[source] = 0.0;
         m_pq.insert(m_dist_to[source], source);
 
         while (!m_pq.is_empty())
         {
-            scan(graph, m_pq.remove_min());
+            scan(g, m_pq.remove_min());
         }
     }
 
     // scan vertex `v`
-    void scan(const Graph &graph, size_t v)
+    void scan(const graph &g, size_t v)
     {
         m_marked[v] = true;
 
-        for (auto e : graph.adj(v))
+        for (auto e : g.adj(v))
         {
             auto w = e->other(v);
 
@@ -106,7 +106,7 @@ template <class Graph, class Edge> class prim_mst
 
     std::vector<double> m_dist_to;
     std::vector<bool> m_marked;
-    std::vector<std::shared_ptr<Edge>> m_edge_to;
+    std::vector<std::shared_ptr<edge>> m_edge_to;
     pq::index_min_pq<double> m_pq;
 };
 

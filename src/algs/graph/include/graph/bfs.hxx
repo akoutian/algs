@@ -14,21 +14,21 @@ namespace graph
 namespace bfs
 {
 
-template <class Graph> class bfs
+template <class graph> class bfs
 {
   public:
     // Compute the shortest path between the `source` vertex and every
     // other vertex in the `graph`
-    bfs(const Graph &graph, size_t source) : bfs(graph.v(), source)
+    bfs(const graph &g, size_t source) : bfs(g.v(), source)
     {
-        search(graph, source);
+        search(g, source);
         // TODO: assert(check(graph, source));
     }
 
     // Compute the shortest path between any of the `sources` and every other vertex in the `graph`
-    bfs(const Graph &graph, const std::vector<size_t> &sources) : bfs(graph.v(), sources)
+    bfs(const graph &g, const std::vector<size_t> &sources) : bfs(g.v(), sources)
     {
-        search(graph, sources);
+        search(g, sources);
         // TODO: assert(check(graph, source));
     }
 
@@ -91,7 +91,7 @@ template <class Graph> class bfs
         }
     }
 
-    void search(const Graph &graph, size_t source)
+    void search(const graph &g, size_t source)
     {
         std::queue<size_t> q;
 
@@ -99,10 +99,10 @@ template <class Graph> class bfs
         m_marked[source] = true;
         q.push(source);
 
-        search(graph, q);
+        search(g, q);
     }
 
-    void search(const Graph &graph, const std::vector<size_t> &sources)
+    void search(const graph &g, const std::vector<size_t> &sources)
     {
         std::queue<size_t> q;
 
@@ -113,17 +113,17 @@ template <class Graph> class bfs
             q.push(s);
         }
 
-        search(graph, q);
+        search(g, q);
     }
 
-    void search(const Graph &graph, std::queue<size_t> &q)
+    void search(const graph &g, std::queue<size_t> &q)
     {
         while (!q.empty())
         {
             const auto v = q.front();
             q.pop();
 
-            for (auto e : graph.adj(v))
+            for (auto e : g.adj(v))
             {
                 const auto w = e->other(v);
                 if (!m_marked[w])
