@@ -43,7 +43,7 @@ template <class graph> class cc
     }
 
   private:
-    cc(const graph &g, size_t v) : m_marked(v), m_id(v), m_size(v)
+    cc(const graph &g, size_t v) : m_marked(v), m_id(v), m_size(v), m_count{}
     {
         for (size_t vv{}; vv < v; ++vv)
         {
