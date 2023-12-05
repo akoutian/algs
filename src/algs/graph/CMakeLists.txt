@@ -11,6 +11,9 @@ if(BUILD_TESTING)
   create_test(NAME cc-test SOURCES test/cc-test.cxx)
   target_link_libraries(cc-test graph doctest::doctest)
 
+  create_test(NAME dfs-test SOURCES test/dfs-test.cxx)
+  target_link_libraries(dfs-test graph doctest::doctest)
+
   create_test(NAME edge-test SOURCES test/edge-test.cxx)
   target_link_libraries(edge-test graph doctest::doctest)
 
