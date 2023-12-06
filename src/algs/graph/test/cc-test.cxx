@@ -162,4 +162,14 @@ TEST_CASE("Test method \"connected\": 2 - invalid query")
                          const std::invalid_argument &);
 }
 
+TEST_CASE("Test constructor: throws for directed graph")
+{
+    graph g(2, direction::directed);
+
+    const auto will_throw = [&]() { const auto c = cc(g); };
+
+    CHECK_THROWS_WITH_AS(will_throw(), "This algorithm does not work on directed graphs.",
+                         const std::invalid_argument &);
+}
+
 } // namespace graph::cc

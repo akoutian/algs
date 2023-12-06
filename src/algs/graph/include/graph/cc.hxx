@@ -14,27 +14,32 @@ namespace cc
 template <class graph> class cc
 {
   public:
+    // Computes the connected components of an undirected graph
     cc(const graph &g) : cc(g, g.v())
     {
     }
 
+    // Returns the component identifier of the connected component containing a vertex.
     size_t id(size_t v)
     {
         throw_on_invalid_index(v);
         return m_id[v];
     }
 
+    // Returns the number of vertices in the connected component containint a vertex.
     size_t size(size_t v)
     {
         throw_on_invalid_index(v);
         return m_size[m_id[v]];
     }
 
+    // Returns the number of connected components in the graph.
     size_t count()
     {
         return m_count;
     }
 
+    // Returns `true` if two vertices are in the same connected component.
     bool connected(size_t v, size_t w)
     {
         throw_on_invalid_index(v);
@@ -45,6 +50,11 @@ template <class graph> class cc
   private:
     cc(const graph &g, size_t v) : m_marked(v), m_id(v), m_size(v), m_count{}
     {
+        if (g.is_directed())
+        {
+            throw std::invalid_argument("This algorithm does not work on directed graphs.");
+        }
+
         for (size_t vv{}; vv < v; ++vv)
         {
             if (!m_marked[vv])
