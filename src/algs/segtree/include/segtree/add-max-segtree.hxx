@@ -73,7 +73,7 @@ template <typename T> class add_max_segtree
     // of elements in the array the tree represents. Therefore, the maximum number of nodes will be
     // less than 4*n, so we allocate this amount of memory.
     // NOTE: this could be a waste of memory in some cases.
-    // TODO: optimise
+    // TODO: optimise by numbering vertices in the order of a pre-order traversal
     add_max_segtree(const std::vector<T> &values, size_t n) : m_tree(4 * n), m_lazy(4 * n), m_n{n}
     {
         build(values, 1, 0, m_n - 1);

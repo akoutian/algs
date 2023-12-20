@@ -152,3 +152,4 @@ TEST_CASE("Test method `get_max`: 6 - multiple max - subarrays")
 }
 
 // TODO: "sliding window" tests would be cool
+// TODO: test all methods
