@@ -25,7 +25,9 @@ template <typename T> class add_max_segtree
     // Add a value to the whole range.
     void add(T val)
     {
-        add(1, 0, m_n - 1, 0, m_n - 1, val);
+        constexpr size_t lo = 0;
+        const auto hi = m_n - 1;
+        add(1, lo, hi, lo, hi, val);
     }
 
     // Add a value to the value at a given position.
@@ -49,7 +51,9 @@ template <typename T> class add_max_segtree
     // Find the maximum element.
     T get_max()
     {
-        return get_max(1, 0, m_n - 1, 0, m_n - 1);
+        constexpr size_t lo = 0;
+        const auto hi = m_n - 1;
+        return get_max(1, lo, hi, lo, hi);
     }
 
     // Find the maximum element in a given interval [lo, hi].
