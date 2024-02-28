@@ -8,20 +8,18 @@
 
 #include <doctest/doctest.h>
 
-namespace graph::cc
+namespace graph
 {
-
-using graph = graph<edge>;
 
 namespace
 {
 
 // TinyG.txt from "Algorithms, 4th Edition" by R. Sedgewick and K. Wayne (2011), chapter 4.1:
 // "Undirected Graphs", page 545
-graph build_test_graph()
+graph<edge> build_test_graph()
 {
     constexpr size_t v = 13;
-    graph g(v);
+    graph<edge> g(v);
 
     const auto edges = []()
     {
@@ -164,7 +162,7 @@ TEST_CASE("Test method \"connected\": 2 - invalid query")
 
 TEST_CASE("Test constructor: throws for directed graph")
 {
-    graph g(2, direction::directed);
+    graph<edge> g(2, direction::directed);
 
     const auto will_throw = [&]() { const auto c = cc(g); };
 
@@ -172,4 +170,4 @@ TEST_CASE("Test constructor: throws for directed graph")
                          const std::invalid_argument &);
 }
 
-} // namespace graph::cc
+} // namespace graph

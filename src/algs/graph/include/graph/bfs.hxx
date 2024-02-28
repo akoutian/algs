@@ -11,9 +11,6 @@
 namespace graph
 {
 
-namespace bfs
-{
-
 template <class graph> class bfs
 {
   public:
@@ -141,7 +138,5 @@ template <class graph> class bfs
     std::vector<size_t> m_edge_to;
     std::vector<size_t> m_dist_to;
 };
-
-} // namespace bfs
 
 } // namespace graph

@@ -8,7 +8,7 @@
 #include <memory>
 #include <vector>
 
-namespace mst
+namespace graph
 {
 
 template <class graph, class edge> class prim_mst
@@ -110,4 +110,4 @@ template <class graph, class edge> class prim_mst
     pq::index_min_pq<double> m_pq;
 };
 
-} // namespace mst
+} // namespace graph

@@ -9,9 +9,6 @@
 namespace graph
 {
 
-namespace dfs
-{
-
 template <class graph> class dfs
 {
   public:
@@ -81,7 +78,5 @@ template <class graph> class dfs
     std::vector<size_t> m_edge_to;
     size_t m_s;
 };
-
-} // namespace dfs
 
 } // namespace graph

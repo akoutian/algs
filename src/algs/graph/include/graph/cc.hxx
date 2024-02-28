@@ -8,9 +8,6 @@
 namespace graph
 {
 
-namespace cc
-{
-
 template <class graph> class cc
 {
   public:
@@ -97,7 +94,5 @@ template <class graph> class cc
     std::vector<size_t> m_size;
     size_t m_count;
 };
-
-} // namespace cc
 
 } // namespace graph

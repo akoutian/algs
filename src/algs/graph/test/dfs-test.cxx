@@ -8,20 +8,18 @@
 
 #include <doctest/doctest.h>
 
-namespace graph::dfs
+namespace graph
 {
-
-using graph = graph<edge>;
 
 namespace
 {
 
 // Graph from "Algorithms, 4th Edition" by R. Sedgewick and K. Wayne (2011),
 // chapter 4.1: "Undirected Graphs", page 538
-graph build_test_graph()
+graph<edge> build_test_graph()
 {
     constexpr size_t v = 6;
-    graph g(v);
+    graph<edge> g(v);
 
     const auto edges = []()
     {
@@ -50,7 +48,7 @@ graph build_test_graph()
 
 TEST_CASE("Obvious DFS")
 {
-    graph g(2);
+    graph<edge> g(2);
 
     const auto e = std::make_shared<edge>(0, 1);
 
@@ -120,4 +118,4 @@ TEST_CASE("Check method \"path_to\"")
     CHECK(path4[4] == 0);
 }
 
-} // namespace graph::dfs
+} // namespace graph
