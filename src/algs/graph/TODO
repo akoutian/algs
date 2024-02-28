@@ -1,4 +1,0 @@
-- implement dijkstra's shortest paths
-- implement kosaraju-sharir strongly connected components
-- implement topological sort
-- refactor mst-test to test methods one-by-one as in bfs-test
