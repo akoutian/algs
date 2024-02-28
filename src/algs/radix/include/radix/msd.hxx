@@ -9,9 +9,6 @@
 namespace radix
 {
 
-namespace msd
-{
-
 namespace
 {
 
@@ -120,7 +117,5 @@ template <Integral T, size_t N> void msd(std::array<T, N> &items)
     auto aux = items;
     msd(items, 0, N - 1, 0, aux);
 }
-
-} // namespace msd
 
 } // namespace radix

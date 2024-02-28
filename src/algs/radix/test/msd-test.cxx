@@ -8,7 +8,7 @@
 
 #include <random>
 
-namespace radix::msd
+namespace radix
 {
 
 namespace
@@ -935,4 +935,4 @@ TEST_CASE("Test long array - 16")
     }
 }
 
-} // namespace radix::msd
+} // namespace radix
